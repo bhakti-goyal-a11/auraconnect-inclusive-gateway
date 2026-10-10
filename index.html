@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraConnect - Inclusive Digital Gateway</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-area">
+            <h1>AuraConnect</h1>
+            <span class="badge">Inclusive Access Platform</span>
+        </div>
+        <p>Voice-First & Accessible Digital Gateway for Rural & Underserved Communities</p>
+    </header>
+
+    <main class="container">
+        <!-- Accessibility Controls -->
+        <div class="accessibility-bar">
+            <button onclick="toggleHighContrast()" title="Toggle High Contrast Mode">🌓 High Contrast</button>
+            <button onclick="adjustFontSize(1)" title="Increase Text Size">A+</button>
+            <button onclick="adjustFontSize(-1)" title="Decrease Text Size">A-</button>
+            <button onclick="stopSpeech()" title="Stop Voice Audio">🔇 Stop Audio</button>
+        </div>
+
+        <section class="card">
+            <h2>Select Service Category</h2>
+            <p class="instruction">Tap a button below or use the voice assistant to get instant spoken guidance.</p>
+            
+            <div class="btn-group">
+                <button class="service-btn edu" onclick="fetchService('education')">
+                    <span class="icon">📚</span> Education
+                </button>
+                <button class="service-btn health" onclick="fetchService('healthcare')">
+                    <span class="icon">🏥</span> Healthcare
+                </button>
+                <button class="service-btn emp" onclick="fetchService('employment')">
+                    <span class="icon">💼</span> Employment
+                </button>
+            </div>
+        </section>
+
+        <section class="card output-section">
+            <div class="output-header">
+                <h2>Assistant Guidance</h2>
+                <button class="replay-btn" onclick="replayLastAudio()" title="Replay Audio">🔊 Replay</button>
+            </div>
+            <div id="output" class="output-box" tabindex="0">
+                Tap a category above or use the voice command button below to get started.
+            </div>
+        </section>
+
+        <section class="card voice-control-section">
+            <button class="voice-btn" onclick="startVoiceQuery()">
+                <span class="mic-icon">🎙️</span> Speak Your Query (Voice Assistant)
+            </button>
+            <p id="voice-status" class="voice-status">Microphone ready. Say "Education", "Healthcare", or "Employment".</p>
+        </section>
+
+        <section class="card history-section">
+            <h2>Recent Community Queries</h2>
+            <button class="load-history-btn" onclick="loadHistory()">Load Interaction History</button>
+            <div id="history-box" class="history-box">
+                <p class="placeholder-text">No recent history loaded.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AuraConnect | Designed for Hackathon Excellence & Social Impact</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+          </html>
